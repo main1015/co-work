@@ -1,0 +1,9 @@
+.mt40 {
+    margin-top: 40px;
+}
+
+.tip:after {
+    content: ":";
+    display: inline-block;
+    margin-left: 5px;
+}

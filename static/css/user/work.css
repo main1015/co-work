@@ -1,0 +1,73 @@
+form{
+    margin: 0px 0px 0px 0px;
+}
+
+/*introduce样式*/
+.introduce-body{
+    padding: 3px;
+    margin: 30px 4px;
+    /*border: 1px solid rgba(0, 0, 0, 0.2);*/
+    /*box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);*/
+    border-radius: 5px;
+    height: 100px;
+}
+.introduce-icon img{
+    opacity: .95;
+    margin: 5px 3px;
+    /*border-left: 1px solid #ccc;*/
+    border: 1px solid rgba(0, 0, 0, 0.2)
+}
+.introduce-icon{
+    position: relative;
+}
+.introduce-icon:before {
+    content: "";
+    position: absolute;
+    left: 45px;
+    top: -35px;
+    width: 1px;
+    height: 40px;
+    background-color: #ccc;
+}
+.introduce-icon:after {
+    content: "";
+    position: absolute;
+    left: 45px;
+    bottom: -5px;
+    width: 1px;
+    height: 10px;
+    background-color: #ccc;
+}
+.introduce-row{
+    margin-left: 0px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.introduce-job{
+    text-align: right;
+    font-size: 18.5px;
+    font-weight: normal;
+    line-height: 1;
+    color: #999;
+    margin-top: 25px;
+}
+.introduce-name{
+    text-align: right;
+    font-size: 24.5px;
+    font-weight: normal;
+    line-height: 1;
+    margin-top: 10px;
+    text-shadow: 1px 1px 5px #44b89e;
+    font-family: inherit;
+}
+.introduce-span{
+    height: 100%;
+    margin-left: 15px;
+}
+
+.introduce-title{
+    width: 200px;
+    margin-right: 5px;
+}
+/**/

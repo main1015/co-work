@@ -1,0 +1,137 @@
+/**{
+    margin:0;
+    padding:0;
+}*/
+.note-body{
+    font-family:arial,sans-serif;
+    font-size:100%;
+    /*margin:3em;*/
+    background:#666;
+    color:#fff;
+}
+.note-body *{
+    margin: 0;
+    padding: 0;
+}
+.note-li h2,.note-li p{
+    font-size:100%;
+    font-weight:normal;
+}
+.note-ul,.note-li{
+    list-style:none;
+}
+.note-ul{
+    overflow:hidden;
+    padding:3em;
+    /*position: relative;*/
+    height: 600px;
+}
+.note-li .a-tab{
+    text-decoration:none;
+    color:#000;
+    background:#ffc;
+    display:block;
+    height:10em;
+    width:10em;
+    padding: 1em; /* Firefox */
+    -moz-box-shadow: 5px 5px 7px rgba(33, 33, 33, 1); /* Safari+Chrome */
+    -webkit-box-shadow: 5px 5px 7px rgba(33, 33, 33, .7); /* Opera */
+    box-shadow: 5px 5px 7px rgba(33, 33, 33, .7);
+}
+
+.note-li{
+    margin:1em;
+    float:left;
+}
+
+.note-li:nth-child(even) .a-tab{
+    -o-transform:rotate(8deg);
+    -webkit-transform:rotate(8deg);
+    -moz-transform:rotate(8deg);
+    position:relative;
+    top:5px;
+    background: #cfc;
+  }
+
+.note-li:nth-child(odd) .a-tab{
+    -o-transform:rotate(-8deg);
+    -webkit-transform:rotate(-8deg);
+    -moz-transform:rotate(-8deg);
+    position:relative;
+    top: 0px;
+    background: #ccf;
+}
+
+.note-li:nth-child(3n) .a-tab{
+    -o-transform:rotate(-3deg);
+    -webkit-transform:rotate(-3deg);
+    -moz-transform:rotate(-3deg);
+    position:relative;
+    top:-5px;
+    background: #cca;
+}
+
+.note-li:nth-child(5n) .a-tab{
+    -o-transform:rotate(5deg);
+    -webkit-transform:rotate(5deg);
+    -moz-transform:rotate(5deg);
+    position:relative;
+    top:-10px;
+    background: #caf;
+}
+
+.note-li .a-tab:hover,.note-li .a-tab:focus{
+    -moz-box-shadow:10px 10px 7px rgba(0,0,0,.7);
+    -webkit-box-shadow: 10px 10px 7px rgba(0,0,0,.7);
+    box-shadow:10px 10px 7px rgba(0,0,0,.7);
+    -webkit-transform: scale(1.45);
+    -moz-transform: scale(1.45);
+    -o-transform: scale(1.45);
+    -moz-transition: -moz-transform .15s linear;
+    -o-transition: -o-transform .15s linear;
+    -webkit-transition: -webkit-transform .15s linear;
+    position:relative;
+    z-index:1000;
+}
+
+
+.note-li h2{
+    font-size: 140%;
+    font-weight: bold;
+    padding-bottom: 10px;
+}
+
+.note-li p, .a-href i{
+    font-family: "Reenie Beanie" ,arial,sans-serif,'微软雅黑';
+    font-size: 110%;
+}
+
+.drag {
+	position: absolute;
+	cursor: move;
+}
+.a-tab{
+    position: relative;
+}
+.a-href{
+    bottom: 10px;
+    right: 10px;
+    position: absolute;
+}
+
+.a-tab img{
+    top: -20px;
+    left: 45%;
+    position: absolute;
+    width: 30px;
+    height: 30px;
+}
+
+/*---------------------------------------------*/
+.div-hr i{
+    float: right;
+    position: relative;
+    top: -15px;
+    right: 10px;
+    cursor: pointer;
+}

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html id="{% block html_id -%}{%- endblock %}" class="{% block html_cls -%}{%- endblock %}">
+<head>
+    <meta charset="utf-8">
+    <meta name="Keywords" content="{%block keywords%}{%endblock%}">
+    <meta name="Description" content="{%block describ -%}快印网，猪八戒快印,{%-endblock%}">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>{% block title %}{% endblock %} - 狗友</title>
+    {% block head %}
+        <link rel="stylesheet" href="{{s_domain}}/css/bootstrap.css">
+        <link rel="stylesheet" href="{{s_domain}}/css/common/base.css">
+        <script src="{{ s_domain}}/js/jquery.1.10.2.js"></script>
+        <script src="{{ s_domain}}/js/bootstrap-dropdown.js"></script>
+    {% endblock %}
+
+</head>
+<body id="{% block body_id -%}{%- endblock %}" class="{% block body_cls -%}{%- endblock %}">
+
+    {% block content%}
+        {% block top %}
+            {% include "/common/top.html" %}
+        {% endblock %}
+    {% endblock %}
+    {%block foot%}
+        {%include "/common/foot.html" %}
+    {% endblock%}
+    {% block  last_script%}
+    {% endblock %}
+</body>
+</html>

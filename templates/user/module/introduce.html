@@ -1,0 +1,16 @@
+{%- macro introduce(work) %}
+    <div class="introduce-body row">
+        <div class="span introduce-span introduce-title">
+            <div class="introduce-row introduce-job row">{{ work.position }}</div>
+            <div class="introduce-row introduce-name row">
+                <a href="/note/index?uid={{ work.user_id }}" title="{{ work.nickname }}">{{ work.nickname }}</a>
+            </div>
+        </div>
+        <div class="span introduce-span introduce-icon">
+            <img class="img-circle" src="https://avatars3.githubusercontent.com/u/3272281?s=90">
+        </div>
+        <div class="span introduce-span">
+
+        </div>
+    </div>
+{% endmacro -%}

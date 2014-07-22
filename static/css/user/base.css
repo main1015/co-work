@@ -1,0 +1,8 @@
+.alert{
+    margin-top: 3px;
+    margin-bottom: 2px;
+}
+.alert>ul{
+    margin-bottom: 5px;
+}
+
