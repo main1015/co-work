@@ -1,16 +1,36 @@
 {%- macro introduce(work) %}
     <div class="introduce-body row">
         <div class="span introduce-span introduce-title">
-            <div class="introduce-row introduce-job row">{{ work.position }}</div>
+            <div class="introduce-row introduce-time row" title='{{ work.entry_at|datetimeformat("%Y年%m月%d日") }}{{ ' - %s' % work.dimission_at|datetimeformat("%Y年%m月%d日") if work.is_resign }}'>{{ work.entry_at|datetimeformat("%Y年%m月") }}{{ ' - %s' % work.dimission_at|datetimeformat("%Y年%m月") if work.is_resign }}</div>
+            <div class="introduce-row introduce-job row" title="{{ work.department }}">{{ work.department }}</div>
             <div class="introduce-row introduce-name row">
                 <a href="/note/index?uid={{ work.user_id }}" title="{{ work.nickname }}">{{ work.nickname }}</a>
             </div>
         </div>
         <div class="span introduce-span introduce-icon">
-            <img class="img-circle" src="https://avatars3.githubusercontent.com/u/3272281?s=90">
+            <a href="/note/index?uid={{ work.user_id }}">
+                <img class="img-circle" src="https://avatars3.githubusercontent.com/u/3272281?s=90" title="{{ work.nickname }}">
+            </a>
         </div>
-        <div class="span introduce-span">
-
+        <div class="span introduce-span introduce-info">
+            <div class="introduce-row introduce-work row">
+                <div class="-work-span -work-icon" title="{{ work.company_name }}">
+                    <img src="http://s.kywcdn.com/common/imgs/logo.png">
+                </div>
+                <div class="-work-span -work-job introduce-row" title="{{ work.position }}">
+                    {{ work.position }}
+                </div>
+                <div class="-work-span -work-age">
+                    {%- if work.is_resign %}
+                        {%- set _days = work.entry_at|to_days(work.dimission_at) -%}
+                        {{ _days|to_years }}年
+                    {%- else -%}
+                        {%- set _days = work.entry_at|to_days -%}
+                        第{{ _days|to_years }}年
+                    {% endif -%}
+                </div>
+                <i class="delete" data-id="{{ work.id }}"></i>
+            </div>
         </div>
     </div>
 {% endmacro -%}

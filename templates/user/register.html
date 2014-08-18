@@ -3,11 +3,19 @@
 
 {% block head %}
     {{ super() }}
-    <link rel="stylesheet" href="{{s_domain}}/css/common/subtitle_top.css">
+    {#<link rel="stylesheet" href="{{s_domain}}/css/common/subtitle_top.css">
+    <script src="{{ s_domain }}/js/clock.js"></script>
     <link rel="stylesheet" href="{{s_domain}}/css/user/base.css">
     <link rel="stylesheet" href="{{s_domain}}/css/user/register.css">
     <script src="{{ s_domain }}/js/bootstrap-alert.js"></script>
-    <script src="{{ s_domain }}/js/user/register.js"></script>
+    <script src="{{ s_domain }}/js/user/register.js"></script>#}
+
+    {{ css('/css/common/subtitle_top.css') }}
+    {{ css('/css/user/base.css') }}
+    {{ css('/css/user/register.css') }}
+    {{ script('/js/clock.js') }}
+    {{ script('/js/bootstrap-alert.js') }}
+    {{ script('/js/user/register.js') }}
 {% endblock %}
 
 {% block content %}

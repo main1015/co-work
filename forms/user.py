@@ -51,6 +51,10 @@ class UserWorkExperienceForm(_Form):
         Required(message=u"职位不能为空！")
     ])
 
+    department = TextField(u"部门", [
+        Required(message=u"部门不能为空！")
+    ])
+
     entry_at = DateField(u"入职日期", [
         Required(message=u"入职日期不能为空！")
     ])

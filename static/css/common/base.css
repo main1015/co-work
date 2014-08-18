@@ -1,3 +1,7 @@
+body {
+  position: relative;
+  padding-top: 40px;
+}
 .mt40 {
     margin-top: 40px;
 }

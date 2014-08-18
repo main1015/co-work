@@ -1,14 +1,13 @@
 {% extends "/common/layout.html" %}
-{% block title %}我的地盘{% endblock %}
+{% block title %}工作集中营{% endblock %}
 
 {% block head %}
     {{ super() }}
-    {#<link rel="stylesheet" href="{{s_domain}}/css/common/subtitle_top.css">
-    <script src="{{ s_domain }}/js/clock.js"></script>
-    <link rel="stylesheet" href="{{s_domain}}/css/user/detail.css">#}
+{#    <link rel="stylesheet" href="{{s_domain}}/css/common/subtitle_top.css">#}
     {{ css('/css/common/subtitle_top.css') }}
-    {{ css('/css/user/detail.css') }}
+{#    <script src="{{ s_domain }}/js/clock.js"></script>#}
     {{ script('/js/clock.js') }}
+    {{ css('/css/company/index.css') }}
 {% endblock %}
 
 {% block content %}

@@ -37,3 +37,51 @@ $('#resign-switch').on('switch-change', function (e, data) {
 
     }
 });
+
+
+function _alter(msg){
+    $.confirm({
+        'title': '操作提示',
+        'message': msg,
+        'buttons': {
+            'Yes': {
+                'class': 'blue',
+                'title': '确定'
+
+            },
+            'No': {
+                'class': 'gray',
+                'title': '取消'
+            }
+        }
+    });
+}
+
+$(".delete").click(function(e){
+    var $this = $(this);
+    var id = $this.data('id');
+    $.confirm({
+        'title': '删除工作经历',
+        'message': '你确定删除工作经历，删除后将不能恢复！',
+        'buttons': {
+            'Yes': {
+                'class': 'blue',
+                'title': '确定',
+                'after': function () {
+
+                    $.post('/u/del/work_experience/'+id, function(data){
+                        if(data.code == 200){
+                            var row = $this.closest('.introduce-body');
+                            row.remove();
+                        }
+                        _alter(data.msg);
+                    }, "json");
+                }
+            },
+            'No': {
+                'class': 'gray',
+                'title': '取消'
+            }
+        }
+    });
+});

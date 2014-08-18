@@ -27,6 +27,15 @@ $('.note-li').drag("start",function (ev, dd) {
         top: Math.min(dd.limit.bottom, Math.max(dd.limit.top, dd.offsetY)),
         left: Math.min(dd.limit.right, Math.max(dd.limit.left, dd.offsetX))
     });
+}).click(function(e){
+    $(this).css('zIndex', z++);
+}).dblclick(function(e){
+        var title = $(this).find(".m-title")
+        var content = $(this).find(".m-content")
+        var pre = $("<pre></pre>").text(content.text());
+        $("#showModalLabel").text(title.text());
+        $("#showContent").html(pre);
+        $('#show_modal').modal('toggle');
 });
 
 //$(".a-tab").click(function(e){
@@ -34,6 +43,10 @@ $('.note-li').drag("start",function (ev, dd) {
 //});
 
 $div.dblclick(function(e){
+    var _this = e.target == this;
+    if(!_this){
+        return;
+    }
 
     var padding_w = ($(this).innerWidth() - $(this).width()) / 2;
     var padding_h = ($(this).innerHeight() - $(this).height()) / 2;

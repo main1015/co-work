@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from flask import Blueprint, redirect, url_for, make_response, g, request
+from db.model import User
 from forms.page import PageForm
 from forms.user import UserRegisterForm, UserLoginForm, UserWorkExperienceForm
 from util.forms import print_form
@@ -7,7 +8,7 @@ from util.strings import password_encrypt
 from util.template import render
 from worker.decorator import login_required, rjson
 from worker.lib.cookie import set_user_login_cookie, delete_user_login_cookie
-from db.service.user import add_user, find_email_user, find_user_work_experiences, add_user_work_experiences
+from db.service.user import add_user, find_email_user, find_user_work_experiences, add_user_work_experiences, del_user_work_experiences
 from worker.result import ResultCode, Result
 
 __author__ = 'myth'
@@ -118,6 +119,7 @@ def user_work_experience_page():
 
     data = {}
     user = g.curr_user
+
     page_form = PageForm()
     form = UserWorkExperienceForm()
 
@@ -154,8 +156,8 @@ def user_work_experience_post_page():
         #如果提交成功就跳转到get请求上
         #防治用户通过F5刷新重复提交 Post-Redirect-Get (PRG)模式。
         work = add_user_work_experiences(user, form.company_name.data, form.position.data,
-                                         form.entry_at.data, is_resign=form.is_resign.data,
-                                         dimission_at=form.dimission_at.data,
+                                         form.department.data, form.entry_at.data,
+                                         is_resign=form.is_resign.data, dimission_at=form.dimission_at.data,
                                          company_id=form.company_id.data)
         to_redirect = redirect(url_for('user_page.user_work_experience_page'))
         return to_redirect
@@ -166,3 +168,14 @@ def user_work_experience_post_page():
     data['works'] = works
     data['pages'] = pages
     return render('/user/work.html', **data)
+
+
+@user_page.route("/u/del/work_experience/<int:w_id>", methods=("POST",))
+@rjson
+@login_required
+def del_work_experience_page(w_id):
+
+    del_user_work_experiences(w_id)
+    result = Result(ResultCode.SUCCESS, msg=u'删除成功!').recall()
+
+    return result

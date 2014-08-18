@@ -1,0 +1,99 @@
+<!-- Modal -->
+<div id="add_modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="addModalLabel"
+     aria-hidden="true">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="addModalLabel">我的笔记</h3>
+    </div>
+    <form class="form-horizontal" method="post" id="iform" action="/note/index.post">
+        <div class="modal-body">
+            {{ form.csrf_token }}
+            {{ form.uid(class="hide") }}
+            <div class="control-group">
+                {{ form.title.label(class="control-label tip") }}
+                <div class="controls">
+                    {{ form.title(id="title", placeholder="标题") }}
+                    {% if form.title.errors %}
+                        <div class="alert alert-error">
+                            <button type="button" class="close" data-dismiss="alert">×</button>
+                            <ul>{% for error in form.title.errors %}
+                                <li>{{ error }}</li>{% endfor %}
+                            </ul>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="control-group">
+                {{ form.content.label(class="control-label tip") }}
+                <div class="controls">
+                    {{ form.content(id="content", placeholder="内容(255个字符)", rows=6) }}
+                    {% if form.title.errors %}
+                        <div class="alert alert-error">
+                            <button type="button" class="close" data-dismiss="alert">×</button>
+                            <ul>{% for error in form.content.errors %}
+                                <li>{{ error }}</li>{% endfor %}
+                            </ul>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class="div-hr">
+                <i class="icon-chevron-down"></i>
+                <hr class="hide"/>
+
+            </div>
+
+
+            <div class="control-group hide-div hide">
+                {{ form.x.label(class="control-label tip") }}
+                <div class="controls">
+                    {{ form.x(id="x", placeholder="x坐标") }}
+                    {% if form.x.errors %}
+                        <div class="alert alert-error">
+                            <button type="button" class="close" data-dismiss="alert">×</button>
+                            <ul>{% for error in form.x.errors %}
+                                <li>{{ error }}</li>{% endfor %}
+                            </ul>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class="control-group hide-div hide">
+                {{ form.y.label(class="control-label tip") }}
+                <div class="controls">
+                    {{ form.y(id="y", placeholder="y坐标") }}
+                    {% if form.y.errors %}
+                        <div class="alert alert-error">
+                            <button type="button" class="close" data-dismiss="alert">×</button>
+                            <ul>{% for error in form.y.errors %}
+                                <li>{{ error }}</li>{% endfor %}
+                            </ul>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class="control-group hide-div hide">
+                {{ form.z.label(class="control-label tip") }}
+                <div class="controls">
+                    {{ form.z(id="z", placeholder="z坐标") }}
+                    {% if form.z.errors %}
+                        <div class="alert alert-error">
+                            <button type="button" class="close" data-dismiss="alert">×</button>
+                            <ul>{% for error in form.z.errors %}
+                                <li>{{ error }}</li>{% endfor %}
+                            </ul>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+
+        </div>
+        <div class="modal-footer">
+            <button class="btn" data-dismiss="modal" aria-hidden="true">关闭</button>
+            <button class="btn btn-primary">保存</button>
+        </div>
+    </form>
+</div>

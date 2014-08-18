@@ -33,6 +33,7 @@ def password_encrypt(password, secret):
 _BLOCK_SIZE = 32
 _PADDING = '{'
 
+
 def encrypt_str(str, secret_key):
     """
     Encrypt a string using AES.

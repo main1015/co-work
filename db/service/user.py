@@ -46,7 +46,7 @@ def find_user_work_experiences(user, limit=10, page=1):
     return employers, pages
 
 
-def add_user_work_experiences(user, company_name, position, entry_at, is_resign=False, dimission_at=None, company_id=0):
+def add_user_work_experiences(user, company_name, position, department, entry_at, is_resign=False, dimission_at=None, company_id=0):
     """
     添加用户工作经历
     """
@@ -57,6 +57,7 @@ def add_user_work_experiences(user, company_name, position, entry_at, is_resign=
     employer.company_name = company_name
     employer.company_id = company_id
     employer.position = position
+    employer.department = department
     employer.entry_at = entry_at
     employer.is_resign = is_resign
     if is_resign:
@@ -67,3 +68,9 @@ def add_user_work_experiences(user, company_name, position, entry_at, is_resign=
     db_session.add(employer)
     db_session.commit()
     return employer
+
+
+def del_user_work_experiences(id):
+
+    db_session.query(UserEmployer).filter(UserEmployer.id == id).delete()
+    db_session.commit()

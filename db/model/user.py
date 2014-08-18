@@ -75,6 +75,9 @@ class UserEmployer(Base):
     #职位
     position = Column(String(80), default='', nullable=False, doc=u"职位")
 
+    #部门
+    department = Column(String(80), default='', nullable=False, doc=u"部门")
+
     #入职时间
     entry_at = Column(DateTime, default='0000-00-00 00:00:00', nullable=False, doc=u'入职时间')
 

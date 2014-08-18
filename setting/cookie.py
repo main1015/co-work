@@ -11,7 +11,7 @@ COOKIE_SPLIT_KEY = '_'
 COOKIE_LOGIN_NAME = 'gy'
 
 if platform.node() in DEV_MACHINES:
-    COOKIE_DOMAIN = '127.0.0.1'
+    COOKIE_DOMAIN = '192.168.4.191'
     COOKIE_SECRET_KEY = '1234567890123456'
 elif platform.node() in STAG_MACHINES:
     COOKIE_DOMAIN = ''

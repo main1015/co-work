@@ -6,9 +6,11 @@ from werkzeug.contrib.fixers import ProxyFix
 from db.database import db_session
 from db.model import User
 from setting.config import DEBUG_ENABLED
+from setting.domain import S_DOMAIN
 from worker.controler import register_blueprint, app_config
 from worker.lib.cookie import get_user_id_from_cookie
 from worker.template_filter import register_filter
+from worker.template_global import register_global
 
 __author__ = 'myth'
 
@@ -22,6 +24,7 @@ register_blueprint(app)
 app_config(app)
 
 register_filter(app.jinja_env)
+register_global(app.jinja_env)
 
 
 @app.before_request
@@ -62,8 +65,9 @@ def inject_global_var():
 
     return dict(
         curr_user=g.curr_user,
-        s_domain='/static',
+        s_domain=S_DOMAIN,
     )
+
 
 @app.route('/favicon.ico')
 def favicon():

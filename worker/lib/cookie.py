@@ -46,7 +46,7 @@ def user_id_from_cookie(token, secret_key, split_key):
     not_login_in = 0
     try:
         tokens = decrypt_str(token, secret_key).split(split_key)
-    except TypeError,e:
+    except TypeError, e:
         return not_login_in
     if len(tokens) != 3:
         return not_login_in

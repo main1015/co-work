@@ -18,6 +18,8 @@ def register_filter(jinja2_env):
     jinja2_env.filters['isum'] = count_sum
     jinja2_env.filters['iattr'] = get_attr
     jinja2_env.filters['to_json'] = to_json
+    jinja2_env.filters['to_days'] = to_days
+    jinja2_env.filters['to_years'] = to_years
 
 
 def to_json(value):
@@ -39,7 +41,33 @@ def jinja2_split(value, sep):
 def datetimeformat(value, format='%H:%M / %d-%m-%Y'):
     if not value:
         value = datetime.datetime.now()
-    return value.strftime(format)
+    if isinstance(format, unicode):
+        format = format.encode('utf-8')
+    _value = value.strftime(format)
+    return _value.decode('utf-8')
+
+
+def to_days(start, end=None):
+    """
+    获取两个时间段的天数
+    """
+    if end is None:
+        end = datetime.datetime.now()
+    d = end - start
+    return d.days
+
+
+def to_years(days):
+    """
+    天数转换为年
+    """
+    year = days / 365
+    _year = days / 365.
+    if _year > year:
+        years = (year, '+')
+    else:
+        years = (year, '')
+    return u'%s%s' % years
 
 
 @environmentfilter
