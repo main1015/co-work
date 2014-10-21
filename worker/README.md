@@ -6,7 +6,7 @@ get
     所有路由方法都必须在后面添加_page的后缀。如下：
 
         def user_register_page():
-    
+
 
 post
 ------

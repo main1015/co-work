@@ -28,4 +28,5 @@ def company_get_list_page():
     """
     获取集中营的公司
     """
+    #todo
     get_company_list()
