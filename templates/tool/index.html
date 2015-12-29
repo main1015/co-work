@@ -1,0 +1,40 @@
+{% extends "/common/layout.html" %}
+{% block title %}工作集中营{% endblock %}
+
+{% block head %}
+    {{ super() }}
+{#    <link rel="stylesheet" href="{{s_domain}}/css/common/subtitle_top.css">#}
+    {{ css('/css/common/subtitle_top.css') }}
+{#    <script src="{{ s_domain }}/js/clock.js"></script>#}
+    {{ script('/js/clock.js') }}
+    {{ script('/js/lib/typed/typed.js') }}
+    {{ script('/js/lib/jquery.keyframes/jquery.keyframes.min.js') }}
+    {{ script('/js/lib/zoomy/zoomy.js') }}
+    {{ css('/css/tool/index.css') }}
+{% endblock %}
+{% block  last_script%}
+    {{ super() }}
+    {{ script('/js/tool/index.js') }}
+{% endblock %}
+
+{% block content %}
+    {% include "/common/top.html" with context %}
+    {% include "/common/subtitle_top.html" with context %}
+    <div class="container">
+        <ul class="portfolio-grid">
+            {% for i in [1,2,3,4,5] %}
+            <li >
+                <a href="#" class="animated flipInX">
+                    {{ img("/img/FFFFFF.png") }}
+                </a>
+
+            </li>
+            {% endfor %}
+        </ul>
+        <div class="animation">简单的{{ img("/img/FFFFFF.png" , id="cc") }}</div>
+        <div class="to">简单的{{ img("/img/FFFFFF.png", id="img1") }}{{ img("/img/FFFFFF.png", id="img2") }}</div>
+        <div class="r"></div>
+        <div class="txt"><p>实现方法也不神奇，大多数人肯容易可以想到，用js逐个向容器内添加字符，作者做了很多字符的出来还有速度神马的，我们可以撸一个简单的</p></div>
+        <div class="typing"></div>
+    </div>
+{% endblock %}

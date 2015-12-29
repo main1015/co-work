@@ -13,13 +13,13 @@
                         <a href="/">首页</a>
                     </li>
                     <li class="{{ tab|iattr('user') }}">
-                        <a href="/u/">我的地盘</a>
+                        <a href="{{ url_for("user_page.user_home_page") }}">我的地盘</a>
                     </li>
                     <li class="">
-                        <a href="/company/">工作集中营</a>
+                        <a href="{{ url_for("company_page.company_index_page") }}">工作集中营</a>
                     </li>
                     <li class="">
-                        <a href="./base-css.html">基本CSS样式</a>
+                        <a href="{{ url_for("tool_page.tool_index_page") }}">工具</a>
                     </li>
                 </ul>
 
@@ -30,15 +30,15 @@
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ curr_user.nickname or curr_user.email }} <b class="caret"></b></a>
                             <ul class="dropdown-menu">
-                                <li><a href="/u/work_experience">我的旅途</a></li>
-                                <li><a href="/note/index">我的笔记</a></li>
+                                <li><a href="{{ url_for("user_page.user_work_experience_page") }}">我的旅途</a></li>
+                                <li><a href="{{ url_for("note_page.note_index_page") }}">我的笔记</a></li>
                                 <li><a href="#">Something else here</a></li>
                                 <li class="divider"></li>
-                                <li><a href="/u/logout">退出</a></li>
+                                <li><a href="{{ url_for("user_page.user_logout_page") }}">退出</a></li>
                             </ul>
                         </li>
                     {% else %}
-                        <li><a href="/u/login">登录</a></li>
+                        <li><a href="{{ url_for("user_page.user_login_page") }}">登录</a></li>
                     {% endif %}
                 </ul>
                 <form class="navbar-search pull-right" action="">

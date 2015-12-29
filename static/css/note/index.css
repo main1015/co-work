@@ -6,8 +6,10 @@
     font-family:arial,sans-serif;
     font-size:100%;
     /*margin:3em;*/
-    background:#666;
+    background:#3a3a3a;
     color:#fff;
+    position: relative;
+    margin-top: 100px;
 }
 .note-body *{
     margin: 0;
@@ -88,10 +90,32 @@
 }
 
 /*,.note-li .a-tab:focus*/
+
+.note-li .a-tab{
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -o-transform: scale(1);
+    -moz-transition: -moz-transform .25s linear;
+    -o-transition: -o-transform .25s linear;
+    -webkit-transition: -webkit-transform .25s linear;
+    z-index:2;
+}
+
 .note-li .a-tab:hover{
+    -webkit-transform: scale(2.05);
+    -moz-transform: scale(2.05);
+    -o-transform: scale(2.05);
+    -moz-transition: -moz-transform .45s linear;
+    -o-transition: -o-transform .45s linear;
+    -webkit-transition: -webkit-transform .45s linear;
+    position:relative;
+    z-index:1000;
+}
+/*.note-li .a-tab:hover{
     -moz-box-shadow:10px 10px 7px rgba(0,0,0,.7);
     -webkit-box-shadow: 10px 10px 7px rgba(0,0,0,.7);
     box-shadow:10px 10px 7px rgba(0,0,0,.7);
+    border-radius: 60px 60px 60px 0 / 5px 5px 40px 0;
     -webkit-transform: scale(1.45);
     -moz-transform: scale(1.45);
     -o-transform: scale(1.45);
@@ -100,7 +124,6 @@
     -webkit-transition: -webkit-transform .15s linear;
     position:relative;
     z-index:1000;
-    border-radius: 60px 60px 60px 0 / 5px 5px 40px 0;
 }
 
 .note-li .a-tab:hover:before{
@@ -117,6 +140,7 @@
     -o-transform: rotate(-20deg) skew(-40deg,-3deg) translate(-13px,-13px);
     transform: rotate(-20deg) skew(-40deg,-3deg) translate(-13px,-13px);
 }
+*/
 .note-li h2{
     font-size: 140%;
     font-weight: bold;

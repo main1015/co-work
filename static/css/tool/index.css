@@ -1,0 +1,220 @@
+.portfolio-grid {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    text-align: center;
+    width: 100%;
+}
+
+.portfolio-grid li {
+    display: inline-block;
+    margin: 5px 5px 5px 5px;
+    vertical-align: top;
+    width:212px;
+}
+
+.portfolio-grid li > a,
+.portfolio-grid li > a img {
+    width: 100%;
+    border: none;
+    outline: none;
+    display: block;
+    position: relative;
+    transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+}
+
+.portfolio-grid li > a img:hover {
+    border-radius: 50%;
+    z-index: 9999;
+}
+
+
+/******************************************
+ Animate.CSS By Dan Eden
+******************************************/
+
+.animated{
+    -webkit-animation-duration:1s;
+    -moz-animation-duration:1s;
+    -o-animation-duration:1s;
+    animation-duration:1s;
+    -webkit-animation-fill-mode:both;
+    -moz-animation-fill-mode:both;
+    -o-animation-fill-mode:both;
+    animation-fill-mode:both;
+}
+
+
+@-webkit-keyframes flipInX {
+    0% {
+        -webkit-transform: perspective(400px) rotateX(90deg);
+        opacity: 0;
+    }
+
+    40% {
+        -webkit-transform: perspective(400px) rotateX(-10deg);
+    }
+
+    70% {
+        -webkit-transform: perspective(400px) rotateX(10deg);
+    }
+
+    100% {
+        -webkit-transform: perspective(400px) rotateX(0deg);
+        opacity: 1;
+    }
+}
+@-moz-keyframes flipInX {
+    0% {
+        -moz-transform: perspective(400px) rotateX(90deg);
+        opacity: 0;
+    }
+
+    40% {
+        -moz-transform: perspective(400px) rotateX(-10deg);
+    }
+
+    70% {
+        -moz-transform: perspective(400px) rotateX(10deg);
+    }
+
+    100% {
+        -moz-transform: perspective(400px) rotateX(0deg);
+        opacity: 1;
+    }
+}
+@-o-keyframes flipInX {
+    0% {
+        -o-transform: perspective(400px) rotateX(90deg);
+        opacity: 0;
+    }
+
+    40% {
+        -o-transform: perspective(400px) rotateX(-10deg);
+    }
+
+    70% {
+        -o-transform: perspective(400px) rotateX(10deg);
+    }
+
+    100% {
+        -o-transform: perspective(400px) rotateX(0deg);
+        opacity: 1;
+    }
+}
+@keyframes flipInX {
+    0% {
+        transform: perspective(400px) rotateX(90deg);
+        opacity: 0;
+    }
+
+    40% {
+        transform: perspective(400px) rotateX(-10deg);
+    }
+
+    70% {
+        transform: perspective(400px) rotateX(10deg);
+    }
+
+    100% {
+        transform: perspective(400px) rotateX(0deg);
+        opacity: 1;
+    }
+}
+
+.flipInX {
+    -webkit-backface-visibility: visible !important;
+    -webkit-animation-name: flipInX;
+    -moz-backface-visibility: visible !important;
+    -moz-animation-name: flipInX;
+    -o-backface-visibility: visible !important;
+    -o-animation-name: flipInX;
+    backface-visibility: visible !important;
+    animation-name: flipInX;
+}
+
+/* ======================================= */
+.animation, .r{
+    border: 1px red solid;
+}
+.animation{
+    -webkit-animation:rollIn 1s .2s ease both;
+    -moz-animation:rollIn 1s .2s ease both;
+}
+@-webkit-keyframes rollIn{
+    0%{
+        opacity:0;
+        -webkit-transform:translateX(-100%) rotate(-120deg)
+    }
+    100%{
+        opacity:1;
+        -webkit-transform:translateX(0px) rotate(0deg)
+    }
+}
+
+/*
+@-moz-keyframes rollIn{
+    0%{
+        opacity:0;
+        -moz-transform:translateX(-100%) rotate(-120deg)
+    }
+    100%{
+        opacity:1;
+        -moz-transform:translateX(0px) rotate(0deg)
+    }
+}*/
+.r{
+    position: fixed;
+    right: 0px;
+    top: 250px;
+    width: 300px;
+    min-height: 400px;
+}
+/*.animation img:hover{*/
+     /*/!*-webkit-animation:my 1s .2s ease both;*!/*/
+     /*-webkit-animation-name:my;*/
+    /*-webkit-animation-duration:.1s;*/
+    /*animation-duration:.1s;*/
+    /*-webkit-animation-fill-mode:both;*/
+    /*animation-fill-mode:both;*/
+/*}*/
+@-webkit-keyframes my{
+    0%{
+        -webkit-transform:translateX(6px) rotate(10deg)
+    }
+    25%{
+        -webkit-transform:translateX(26px) rotate(45deg)
+    }
+    50%{
+        -webkit-transform:translateX(36px) rotate(90deg)
+    }
+    75%{
+        -webkit-transform:translateX(46px) rotate(145deg)
+    }
+    100%{
+        -webkit-transform:translateX(56px) rotate(180deg)
+    }
+}
+
+.to{
+    position: relative;
+    min-height: 200px;
+}
+#img2{
+    position: absolute;
+    transition: 1s all ease-in-out;
+    left: 220px;
+}
+#img1:hover + #img2{
+
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+    left: 627px;
+    background: yellow;
+}

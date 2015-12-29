@@ -3,18 +3,15 @@
 
 {% block head %}
     {{ super() }}
-{#    <link rel="stylesheet" href="{{s_domain}}/css/common/subtitle_top.css">#}
-{#    <script src="{{ s_domain }}/js/clock.js"></script>#}
-    {#<script src="{{ s_domain }}/js/lib/drag/jquery.event.drag-2.2.js"></script>
-    <script src="{{ s_domain }}/js/lib/drag/jquery.event.drag.live-2.2.js"></script>
-    <script src="{{ s_domain }}/js/bootstrap-alert.js"></script>
-    <script src="{{ s_domain }}/js/bootstrap-modal.js"></script>
-    <script src="{{ s_domain }}/js/webfont.js"></script>#}
 
     {{ css('/css/note/font.css') }}
     {{ css('/css/note/index.css') }}
+    {{ css('/css/box-shadow.css') }}
+    {{ css('/css/lib/animate/animate.min.css') }}
     {{ script('/js/lib/drag/jquery.event.drag-2.2.js') }}
     {{ script('/js/lib/drag/jquery.event.drag.live-2.2.js') }}
+{#    {{ script('/js/lib/sea/sea.js') }}#}
+{#    {{ script('/js/lib/jquery-drag/jquery-drag.js') }}#}
     {{ script('/js/bootstrap-alert.js') }}
     {{ script('/js/bootstrap-modal.js') }}
     {{ script('/js/webfont.js') }}
@@ -25,21 +22,19 @@
             }
         });
     </script>
-    {#<link rel="stylesheet" href="{{ s_domain }}/css/note/font.css">
-    <link rel="stylesheet" href="{{ s_domain }}/css/note/index.css">#}
 {% endblock %}
 
 {% block content %}
     {% include "/common/top.html" with context %}
-{#    {% include "/common/subtitle_top.html" with context %}#}
     <div class="container note-body">
         <!-- Button to trigger modal -->
         <ul class="note-ul">
             {%- for note in notes %}
-                <li class="note-li drag" style="top: {{ note.y + 82 }}px; left: {{ note.x + 252 }}px; z-index:{{ note.z }}">
-                    <div class="a-tab" href="javascript:void(0);">
+{#                <li class="note-li drag" style="top: {{ note.y + 82 }}px; left: {{ note.x + 252 }}px; z-index:{{ note.z }}">#}
+                <li class="note-li drag bounceIn animated" style="top: {{ note.Y }}px; left: {{ note.X }}px; z-index:{{ note.z }}">
+                    <div class="a-tab box0" href="javascript:void(0);">
                         <h2 class="m-title">{{ note.title }}</h2>
-                        <img src="{{ s_domain}}/img/pin.png">
+                        {{img("/img/pin.png")}}
                         <p>{{ note.content|truncate(45, True) }}</p>
                         <p class="hide m-content">{{ note.content }}</p>
                         <a class="a-href" href="/note/index?uid={{ note.editor_id }}"><i>{{ note.editor_nickname }}</i></a>

@@ -1,0 +1,21 @@
+.box0{
+    -moz-box-shadow:10px 10px 7px rgba(0,0,0,.7);
+    -webkit-box-shadow: 10px 10px 7px rgba(0,0,0,.7);
+    box-shadow:10px 10px 7px rgba(0,0,0,.7);
+    border-radius: 60px 60px 60px 0 / 5px 5px 40px 0;
+}
+
+.box0:before{
+    content: '';
+    width: 20px;
+    height: 15px;
+    position: absolute;
+    bottom: -3px;
+    right: -3px;
+    border-radius: 0 0 30px 0;
+    box-shadow: -2px -2px 5px rgba(0, 0, 0, 0.3);
+    -webkit-transform: rotate(-20deg) skew(-40deg,-3deg) translate(-13px,-13px);
+    -moz-transform: rotate(-20deg) skew(-40deg,-3deg) translate(-13px,-13px);
+    -o-transform: rotate(-20deg) skew(-40deg,-3deg) translate(-13px,-13px);
+    transform: rotate(-20deg) skew(-40deg,-3deg) translate(-13px,-13px);
+}

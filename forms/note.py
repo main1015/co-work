@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from flask.ext.wtf import Form
-from wtforms import TextField, TextAreaField, DecimalField, IntegerField, ValidationError
-from wtforms.validators import Required
+from wtforms import TextAreaField, DecimalField, IntegerField, ValidationError, StringField
+from wtforms.validators import DataRequired
 
 __author__ = 'myth'
 
@@ -10,12 +10,12 @@ class NoteForm(Form):
     """
     笔记表单
     """
-    title = TextField(u"标题", [
-        Required(message=u"标题不能为空！")
+    title = StringField(u"标题", [
+        DataRequired(message=u"标题不能为空！")
     ])
 
     content = TextAreaField(u"内容", [
-        Required(message=u"内容不能为空！")
+        DataRequired(message=u"内容不能为空！")
     ])
 
     x = DecimalField(u'x', default=0)
@@ -25,13 +25,16 @@ class NoteForm(Form):
     uid = IntegerField(u'user_id', default=0)
 
     def validate_x(self, field):
-        if not 0 <= field.data <= 650:
-            raise ValidationError(field.gettext(u'x坐标必须在0～650范围内！'))
+        min_x, max_x = 0, 650
+        if not min_x <= field.data <= max_x:
+            raise ValidationError(field.gettext(u'x坐标必须在%d～%d范围内！' % (min_x, max_x)))
 
     def validate_y(self, field):
-        if not 0 <= field.data <= 415:
-            raise ValidationError(field.gettext(u'y坐标必须在0～415范围内！'))
+        min_y, max_y = 0, 415
+        if not min_y <= field.data <= max_y:
+            raise ValidationError(field.gettext(u'y坐标必须在%d～%d范围内！' % (min_y, max_y)))
 
     def validate_z(self, field):
-        if not 0 <= field.data <= 99:
-            raise ValidationError(field.gettext(u'z坐标必须在0～99范围内！'))
+        min_z, max_z = 0, 99
+        if not min_z <= field.data <= max_z:
+            raise ValidationError(field.gettext(u'z坐标必须在%d～%d范围内！' % (min_z, max_z)))

@@ -8,5 +8,5 @@ __author__ = 'myth'
 
 
 if __name__ == '__main__':
-    #数据库创建
+    # 数据库创建
     init_db()

@@ -10,7 +10,7 @@ from setting.domain import S_DOMAIN
 from worker.controler import register_blueprint, app_config
 from worker.lib.cookie import get_user_id_from_cookie
 from worker.template_filter import register_filter
-from worker.template_global import register_global
+from worker.template_global import register_global, clean_resource
 
 __author__ = 'myth'
 
@@ -33,13 +33,15 @@ def before_request():
     Do sth before each request.
     """
 
+    clean_resource()
+
     # var init.
     g.curr_user = None
     g.req_start_time = time.time()
 
     user_id = get_user_id_from_cookie()
     if user_id > 0:
-        #todo(myth) 根据cookie查询数据,获取用户名
+        # todo(myth) 根据cookie查询数据,获取用户名
         curr_user = User.get(user_id)
         if curr_user:
             g.curr_user = curr_user

@@ -10,7 +10,7 @@ class PageForm(Form):
     分页请求from
     """
 
-    #页数
+    # 页数
     page = IntegerField(u'page', default=1)
-    #每页显示条目
+    # 每页显示条目
     limit = IntegerField(u'limit', default=10)

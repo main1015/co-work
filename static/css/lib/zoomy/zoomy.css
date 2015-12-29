@@ -1,0 +1,7 @@
+.zoomy-relativePosition{
+    position: relative;
+}
+
+.zoomy-showElement{
+    z-index: 9999999!important;
+}
